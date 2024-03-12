@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/iv__happy"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="52dp"
+        android:layout_marginBottom="42dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_detalles"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/grupo1" />
+
+    <Button
+        android:id="@+id/btn_detalles"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="35dp"
+        android:backgroundTint="@color/rosa"
+        android:text="Detalles"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_globos"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv__happy" />
+
+    <Button
+        android:id="@+id/btn_globos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="7dp"
+        android:layout_marginBottom="28dp"
+        android:backgroundTint="@color/rosa"
+        android:text="Globos"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_peluches"
+        app:layout_constraintStart_toStartOf="@+id/btn_peluches"
+        app:layout_constraintTop_toBottomOf="@+id/btn_detalles" />
+
+    <Button
+        android:id="@+id/btn_peluches"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="21dp"
+        android:backgroundTint="@color/rosa"
+        android:text="Peluches"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_regalos"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_globos" />
+
+    <Button
+        android:id="@+id/btn_regalos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginBottom="25dp"
+        android:backgroundTint="@color/rosa"
+        android:text="Regalos"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_tazas"
+        app:layout_constraintStart_toStartOf="@+id/btn_peluches"
+        app:layout_constraintTop_toBottomOf="@+id/btn_peluches" />
+
+    <Button
+        android:id="@+id/btn_tazas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="200dp"
+        android:backgroundTint="@color/rosa"
+        android:text="Tazas"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/btn_regalos"
+        app:layout_constraintTop_toBottomOf="@+id/btn_regalos" />
+</androidx.constraintlayout.widget.ConstraintLayout>
