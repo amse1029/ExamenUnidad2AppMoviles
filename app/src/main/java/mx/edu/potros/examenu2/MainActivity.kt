@@ -12,9 +12,10 @@ class MainActivity : AppCompatActivity() {
 
         val button: Button = findViewById(R.id.btn_visitar)
 
-        button.setOnClickListener {
+        button.setOnClickListener() {
             var intent: Intent = Intent(this, catalogo::class.java)
             startActivity(intent)
         }
     }
+
 }
