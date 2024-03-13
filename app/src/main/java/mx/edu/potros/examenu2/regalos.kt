@@ -2,60 +2,60 @@ package mx.edu.potros.examenu2
 
 import android.content.Context
 import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import android.widget.Button
 import android.widget.GridView
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
 
-class catalogo : AppCompatActivity() {
+class regalos : AppCompatActivity() {
+    var detallesAdapter:DetalleAdapter?=null
+    var globosAdapter:DetalleAdapter?=null
+    var peluchesAdapter:DetalleAdapter?=null
+    var regalosAdapter:DetalleAdapter?=null
+    var tazasAdapter:DetalleAdapter?=null
 
-var detallesAdapter:DetalleAdapter?=null
-var globosAdapter:DetalleAdapter?=null
-var peluchesAdapter:DetalleAdapter?=null
-var regalosAdapter:DetalleAdapter?=null
-var tazasAdapter:DetalleAdapter?=null
+    var detalles=ArrayList<Detalles>()
+    var globos=ArrayList<Detalles>()
+    var peluches=ArrayList<Detalles>()
+    var regalos=ArrayList<Detalles>()
+    var tazas=ArrayList<Detalles>()
 
-var detalles=ArrayList<Detalles>()
-var globos=ArrayList<Detalles>()
-var peluches=ArrayList<Detalles>()
-var regalos=ArrayList<Detalles>()
-var tazas=ArrayList<Detalles>()
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.regalos)
 
-override fun onCreate(savedInstanceState: Bundle?) {
-    super.onCreate(savedInstanceState)
-    setContentView(R.layout.regalos)
-
-    cargarDetalles()
-    cargarGlobos()
-    cargarPeluches()
-    cargarRegalos()
-    cargarTazas()
+        cargarDetalles()
+        cargarGlobos()
+        cargarPeluches()
+        cargarRegalos()
+        cargarTazas()
 
 
-    detallesAdapter = DetalleAdapter(this, detalles)
-    globosAdapter = DetalleAdapter(this, globos)
-    peluchesAdapter = DetalleAdapter(this, peluches)
-    regalosAdapter = DetalleAdapter(this, regalos)
-    tazasAdapter = DetalleAdapter(this, tazas)
+        detallesAdapter = DetalleAdapter(this, detalles)
+        globosAdapter = DetalleAdapter(this, globos)
+        peluchesAdapter = DetalleAdapter(this, peluches)
+        regalosAdapter = DetalleAdapter(this, regalos)
+        tazasAdapter = DetalleAdapter(this, tazas)
 
-    var gridDetalles: GridView = findViewById(R.id.grid_regalos_detalles)
+        var gridDetalles: GridView = findViewById(R.id.grid_regalos_detalles)
 
-    gridDetalles.adapter = detallesAdapter
-}
+        gridDetalles.adapter = detallesAdapter
+    }
 
-fun cargarDetalles() {
-    detalles.add(Detalles(R.drawable.cumplebotanas, "$280"))
-    detalles.add(Detalles(R.drawable.cumplecheve, "$320"))
-    detalles.add(Detalles(R.drawable.cumpleescolar, "$330"))
-    detalles.add(Detalles(R.drawable.cumplepaletas, "$190"))
-    detalles.add(Detalles(R.drawable.cumplesnack, "$150"))
-    detalles.add(Detalles(R.drawable.cumplevinos, "$370"))
-}
+    fun cargarDetalles() {
+        detalles.add(Detalles(R.drawable.cumplebotanas, "$280"))
+        detalles.add(Detalles(R.drawable.cumplecheve, "$320"))
+        detalles.add(Detalles(R.drawable.cumpleescolar, "$330"))
+        detalles.add(Detalles(R.drawable.cumplepaletas, "$190"))
+        detalles.add(Detalles(R.drawable.cumplesnack, "$150"))
+        detalles.add(Detalles(R.drawable.cumplevinos, "$370"))
+    }
 
     fun cargarGlobos() {
         globos.add(Detalles(R.drawable.globoamor, "$240"))
@@ -66,14 +66,14 @@ fun cargarDetalles() {
         globos.add(Detalles(R.drawable.globos, "$240"))
     }
 
-fun cargarRegalos() {
-    regalos.add(Detalles(R.drawable.regaloazul, "$80"))
-    regalos.add(Detalles(R.drawable.regalobebe, "$290"))
-    regalos.add(Detalles(R.drawable.regalocajas, "$85"))
-    regalos.add(Detalles(R.drawable.regalocolores, "$85"))
-    regalos.add(Detalles(R.drawable.regalos, "$"))
-    regalos.add(Detalles(R.drawable.regalovarios, "$75"))
-}
+    fun cargarRegalos() {
+        regalos.add(Detalles(R.drawable.regaloazul, "$80"))
+        regalos.add(Detalles(R.drawable.regalobebe, "$290"))
+        regalos.add(Detalles(R.drawable.regalocajas, "$85"))
+        regalos.add(Detalles(R.drawable.regalocolores, "$85"))
+        regalos.add(Detalles(R.drawable.regalos, "$"))
+        regalos.add(Detalles(R.drawable.regalovarios, "$75"))
+    }
 
     fun cargarPeluches() {
         peluches.add(Detalles(R.drawable.peluchemario, "$320"))
@@ -125,12 +125,11 @@ class DetalleAdapter: BaseAdapter {
         precio.setText(detalle.precio)
 
         image.setOnClickListener {
-            var intento = Intent(context, Detalles::class.java)
+            var intento = Intent(context, detalle_regalos::class.java)
             intento.putExtra("precio", detalle.precio)
             intento.putExtra("imagen", detalle.image)
             context!!.startActivity(intento)
         }
         return vista
     }
-
 }
